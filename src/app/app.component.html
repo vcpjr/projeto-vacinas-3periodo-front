@@ -1,3 +1,60 @@
-<p>TELA DO APP COMPONENT</p>
+<!-- TELA INICIAL DO SISTEMA -->
+<!--
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+      <a class="navbar-brand">ONDE TEM VACINA?</a>
+  </div>
+</nav>
+<div class="fundo-imagem">
+  <h1>Seja bem-vindo ao "Onde Tem Vacina"!</h1>
+  <p class="link-login"><a class="frase-acesso-login" href="https://www.google.com/">Clique aqui e faça login para acessar o sistema</a></p>
+</div>
+<br>
 <router-outlet></router-outlet>
+-->
 
+
+
+<!-- TELA DO USUÁRIO -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="#">ONDE TEM VACINA?</a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Informações Pessoais
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Editar Perfil</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      Pesquisa De Vacinas
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Pesquisa Personalizada de Vacinas</a></li>
+                  </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Carteirinha De Vacinação Virtual
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Pesquisa de Aplicações</a></li>
+              </ul>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Sobre</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<div class="fundo-imagem"></div>
+<br>
+<router-outlet></router-outlet>
