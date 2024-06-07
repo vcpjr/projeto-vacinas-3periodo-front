@@ -1,71 +1,74 @@
 <div class="container">
   <form>
-      <div class="card">
-          <div class="card-header text-white bg-primary">
-              <h4>Aplicação</h4>
-          </div>
 
-          <div class="card-body">
-              <div class="row">
+    <div class="card">
 
-                  <div class="col-md-4 form-group">
-                      <label for="nomePessoa" class="form-label">Selecione o nome da pessoa a ser vacinada</label>
-                      <select class="form-control" name="nomePessoa"
-                          [compareWith]="compareById"
-                          [(ngModel)]="aplicacao.idPessoa" required>
-                          @for(p of pessoas; track p.idPessoa) {
-                             <option [ngValue]="p.idPessoa"> {{ p.nome }} </option>
-                          }
-                      </select>
-                  </div>
-
-                  <div class="col-md-4 form-group">
-                    <label for="nomeVacina" class="form-label">Selecione a vacina a ser aplicada</label>
-                    <select class="form-control" name="nomeVacina"
-                          [compareWith]="compareById"
-                          [(ngModel)]="aplicacao.vacinaAplicada" required>
-                          @for(v of vacinas; track v.idVacina) {
-                           <option [ngValue]="v"> {{ v.nome }} </option>
-                        }
-                    </select>
-                </div>
-
-                <div class="col-md-4 form-group">
-                  <label for="avaliacaoReacao" class="form-label">Avaliação da reação</label>
-                  <select class="form-control" name="avaliacaoReacao" id="avaliacaoReacao"
-                    [(ngModel)]="aplicacao.avaliacaoReacao">
-                      <option value="1">Ótima</option>
-                      <option value="2">Boa</option>
-                      <option value="3">Média</option>
-                      <option value="4">Abaixo da Média</option>
-                      <option value="5">Péssima</option>
-                </select>
-                </div>
-
-                <div class="col-md-3 form-group">
-                  <label for="dataAplicacao" class="form-label">Data Inicial:</label>
-                  <input type="date" class="form-control" name="dataAplicacao" id="dataAplicacao"
-                      [(ngModel)]="aplicacao.dataAplicacao">
-                </div>
-
-              </div>
-
-              <div class="row">
-
-                <div class="col-md-2">
-                  <button type="button" class="form-control btn btn-secondary" (click)="limparFormulario()">
-                    <i class="bi bi-x-circle"></i> Limpar
-                  </button>
-                </div>
-                <div class="col-md-12 form-group">
-                    <label for="btnCadastrar" class="form-label">&nbsp;</label>
-                    <button type="submit" class="btn btn-primary" name="btnCadastrar"
-                            (click)="cadastrar()">Cadastrar</button>
-                </div>
-              </div>
-
-          </div>
+      <div class="card-header text-white bg-primary">
+          <h4>Aplicação</h4>
       </div>
+
+
+      <div class="card-body">
+        <div class="row">
+
+          <div class="col-md-4 form-group">
+              <label for="nomePessoa" class="form-label">Selecione o nome da pessoa</label>
+              <select class="form-control" name="nomePessoa"
+                  [compareWith]="compareById"
+                  [(ngModel)]="aplicacao.pessoaQueRecebeu" required>
+                  @for(p of pessoas; track p.id) {
+                      <option [ngValue]="p"> {{ p.nome }} </option>
+                  }
+              </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label for="nomeVacina" class="form-label">Selecione a vacina</label>
+            <select class="form-control" name="nomeVacina"
+                  [compareWith]="compareById"
+                  [(ngModel)]="aplicacao.vacinaAplicada" required>
+                  @for(v of vacinas; track v.id) {
+                    <option [ngValue]="v"> {{ v.nome }} </option>
+                }
+            </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label for="nomeUnidade" class="form-label">Selecione a unidade</label>
+            <select class="form-control" name="nomeUnidade"
+                  [compareWith]="compareById"
+                  [(ngModel)]="aplicacao.unidadeOndeAplicou" required>
+                  @for(u of unidades; track u.id) {
+                    <option [ngValue]="u"> {{ u.nome }} </option>
+                }
+            </select>
+          </div>
+
+
+          <div class="col-md-3 form-group">
+            <label for="dataAplicacao" class="form-label">Data da Aplicação:</label>
+            <input type="date" class="form-control" name="dataAplicacao" id="dataAplicacao"
+                [(ngModel)]="aplicacao.dataAplicacao">
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-2">
+            <button type="button" class="form-control btn btn-secondary" (click)="limparFormulario()">
+              <i class="bi bi-x-circle"></i> Limpar
+            </button>
+          </div>
+          <div class="col-md-12 form-group">
+              <label for="btnCadastrar" class="form-label">&nbsp;</label>
+              <button type="submit" class="btn btn-primary" name="btnCadastrar"
+                      (click)="cadastrar()">Cadastrar</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </form>
 
 </div>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pessoa } from '../model/pessoa';
+import { PessoaSeletor } from '../model/seletor/pessoa.seletor';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +26,16 @@ export class PessoaService {
 
   public atualizar(pessoa: Pessoa): Observable<boolean>{
     return this.httpClient.put<boolean>(this.API, pessoa);
+  }
+
+  public consultarPessoasComFiltro(seletor: PessoaSeletor): Observable<Array<Pessoa>>{
+    return this.httpClient.post<Array<Pessoa>>(this.API
+                                + '/filtroConsultarPessoas', seletor);
+  }
+
+  // FALTA TESTAR O MÉTODO consultarTodos para verificar se está trazendo a lista do back
+  public consultarTodos(): Observable<Array<Pessoa>>{
+    return this.httpClient.get<Array<Pessoa>>(this.API + '/consultarTodasPessoas');
   }
 
 }
