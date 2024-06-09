@@ -1,16 +1,11 @@
 <div class="container">
   <form>
-
     <div class="card">
-
       <div class="card-header text-white bg-primary">
           <h4>Aplicação</h4>
       </div>
-
-
       <div class="card-body">
         <div class="row">
-
           <div class="col-md-4 form-group">
               <label for="nomePessoa" class="form-label">Selecione o nome da pessoa</label>
               <select class="form-control" name="nomePessoa"
@@ -21,7 +16,6 @@
                   }
               </select>
           </div>
-
           <div class="col-md-4 form-group">
             <label for="nomeVacina" class="form-label">Selecione a vacina</label>
             <select class="form-control" name="nomeVacina"
@@ -32,7 +26,6 @@
                 }
             </select>
           </div>
-
           <div class="col-md-4 form-group">
             <label for="nomeUnidade" class="form-label">Selecione a unidade</label>
             <select class="form-control" name="nomeUnidade"
@@ -43,21 +36,16 @@
                 }
             </select>
           </div>
-
-
           <div class="col-md-3 form-group">
             <label for="dataAplicacao" class="form-label">Data da Aplicação:</label>
             <input type="date" class="form-control" name="dataAplicacao" id="dataAplicacao"
                 [(ngModel)]="aplicacao.dataAplicacao">
           </div>
-
         </div>
-
         <div class="row">
-
           <div class="col-md-2">
             <button type="button" class="form-control btn btn-secondary" (click)="limparFormulario()">
-              <i class="bi bi-x-circle"></i> Limpar
+              <i class="bi bi-x-circle">Limpar</i>
             </button>
           </div>
           <div class="col-md-12 form-group">
@@ -66,12 +54,9 @@
                       (click)="cadastrar()">Cadastrar</button>
           </div>
         </div>
-
       </div>
     </div>
   </form>
-
 </div>
-
 
 

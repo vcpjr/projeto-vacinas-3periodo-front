@@ -25,9 +25,10 @@ export class AplicacaoService {
     return this.httpClient.post<Aplicacao>(this.API, aplicacao);
   }
 
-  public consultarComFiltros(seletor: AplicacaoSeletor): Observable<AplicacaoDTO>{
-    return this.httpClient.post<AplicacaoDTO>(this.API
+  public consultarComFiltros(seletor: AplicacaoSeletor): Observable<Array<AplicacaoDTO>>{
+    return this.httpClient.post<Array<AplicacaoDTO>>(this.API
                                 + '/filtroAplicacoesPessoa', seletor);
   }
 
 }
+

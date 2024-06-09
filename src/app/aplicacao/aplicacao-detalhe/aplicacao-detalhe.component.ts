@@ -6,7 +6,7 @@ import { PessoaSeletor } from '../../shared/model/seletor/pessoa.seletor';
 import { Aplicacao } from '../../shared/model/aplicacao';
 import { Vacina } from '../../shared/model/vacina';
 import { Unidade } from '../../shared/model/unidade';
-import { AplicacaoService } from '../../shared/service/aplicacao.servive';
+import { AplicacaoService } from '../../shared/service/aplicacao.service';
 import { VacinaService } from '../../shared/service/vacina.service';
 import { UnidadeService } from '../../shared/service/unidade.service';
 
@@ -36,7 +36,7 @@ export class AplicacaoDetalheComponent {
   ngOnInit(): void {
     this.consultarTodasAsUnidades();
     this.consultarTodosAsPessoas();
-    this.consultarTodosAsVacinas();
+    this.consultarTodasAsVacinas();
   }
 
   public pesquisar(){
@@ -70,7 +70,7 @@ export class AplicacaoDetalheComponent {
     );
   }
 
-  public consultarTodosAsVacinas(): void{
+  public consultarTodasAsVacinas(): void{
     this.vacinaService.consultarTodas().subscribe(
       (resultado) => {
         this.vacinas = resultado;

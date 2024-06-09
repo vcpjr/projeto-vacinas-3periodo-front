@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Estoque } from '../model/estoque';
 import { VacinaSeletor } from '../model/seletor/vacina.seletor';
 import { VacinaDTO } from '../model/dto/vacina.DTO';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,10 @@ export class EstoqueService {
     return this.httpClient.post<VacinaDTO>(this.API
                                 + '/filtro-Vacinas-EstoqueDaUnidade', seletor);
   }
+
+  public consultarEstoquePorIds(idUnidade: number, idVacina: number): Observable<Estoque>{
+    return this.httpClient.get<Estoque>(this.API + '/' + idUnidade + '/' + idVacina);
+  }
+
 
 }

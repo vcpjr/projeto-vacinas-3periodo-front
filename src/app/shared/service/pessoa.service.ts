@@ -33,7 +33,6 @@ export class PessoaService {
                                 + '/filtroConsultarPessoas', seletor);
   }
 
-  // FALTA TESTAR O MÉTODO consultarTodos para verificar se está trazendo a lista do back
   public consultarTodos(): Observable<Array<Pessoa>>{
     return this.httpClient.get<Array<Pessoa>>(this.API + '/consultarTodasPessoas');
   }

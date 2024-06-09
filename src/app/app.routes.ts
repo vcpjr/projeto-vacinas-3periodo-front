@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: 'vacina',
-    loadChildren: () =>
-      import('./vacina/vacina.module').then((m) => m.VacinaModule)
-  },
   { path: 'aplicacao',
     loadChildren: () =>
       import('./aplicacao/aplicacao.module').then((m) => m.AplicacaoModule)
+  },
+  { path: 'estoque',
+    loadChildren: () =>
+      import('./estoque/estoque.module').then((m) => m.EstoqueModule)
   }
 ];
