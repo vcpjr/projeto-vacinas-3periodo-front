@@ -35,8 +35,8 @@ export class EstoqueService {
     return this.httpClient.post<Estoque>(this.API, estoque);
   }
 
-  public consultarComFiltros(seletor: VacinaSeletor): Observable<VacinaDTO>{
-    return this.httpClient.post<VacinaDTO>(this.API
+  public consultarComFiltros(seletor: VacinaSeletor): Observable<Array<Estoque>>{
+    return this.httpClient.post<Array<Estoque>>(this.API
                                 + '/filtro-Vacinas-EstoqueDaUnidade', seletor);
   }
 
@@ -44,5 +44,10 @@ export class EstoqueService {
     return this.httpClient.get<Estoque>(this.API + '/' + idUnidade + '/' + idVacina);
   }
 
+
+  public consultarEstoquesDaUnidadePorId(estoque: Estoque): Observable<Array<Estoque>>{
+    return this.httpClient.post<Array<Estoque>>(this.API
+                                + '/consultarEstoquesDaUnidadePorId', estoque);
+  }
 
 }
