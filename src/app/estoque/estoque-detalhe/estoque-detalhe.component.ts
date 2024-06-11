@@ -123,7 +123,6 @@ export class EstoqueDetalheComponent {
     );
   }
 
-
   public atualizar(): void {
     this.estoqueService.atualizar(this.estoque).subscribe(
       (resultado) => {
