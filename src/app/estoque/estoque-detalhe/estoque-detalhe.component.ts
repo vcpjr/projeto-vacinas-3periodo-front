@@ -86,7 +86,7 @@ export class EstoqueDetalheComponent {
       },
       (erro) => {
         Swal.fire('Erro ao buscar o estoque da unidade de id '
-          + this.idUnidade + ' no banco de dados para editá-lo',erro,'error');
+          + this.idUnidade + ' e da vacina de id ' + this.idVacina + ' no banco de dados para editá-lo',erro,'error');
       }
     )
   }

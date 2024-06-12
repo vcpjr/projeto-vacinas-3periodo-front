@@ -1,11 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Estoque } from '../../shared/model/estoque';
 import { EstoqueService } from '../../shared/service/estoque.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { Unidade } from '../../shared/model/unidade';
-import { UnidadeService } from '../../shared/service/unidade.service';
-import { VacinaService } from '../../shared/service/vacina.service';
 import { Vacina } from '../../shared/model/vacina';
 
 @Component({
@@ -18,7 +17,7 @@ export class EstoqueListagemComponent implements OnInit{
   public estoques : Array<Estoque> = new Array();
   public unidades : Array<Unidade> = new Array();
   public vacinas : Array<Vacina> = new Array();
-  public estoque : Estoque = new Estoque();
+  public estoque: Estoque | null = null;
 
   constructor(
     private estoqueService : EstoqueService,
@@ -44,17 +43,6 @@ export class EstoqueListagemComponent implements OnInit{
     );
   }
 
-  public pesquisar(): void{
-    this.estoqueService.consultarEstoquesDaUnidadePorId(this.estoque).subscribe(
-      (resultado) => {
-        this.estoques = resultado;
-      },
-      (erro) => {
-        Swal.fire('Erro ao buscar a lista de estoques.','','error');
-      }
-    );
-  }
-
   public excluir(estoqueSelecionado: Estoque): void{
     Swal.fire({
       title: 'Sr. gestor(a) da unidade: Deseja realmente excluir o estoque?',
@@ -68,6 +56,7 @@ export class EstoqueListagemComponent implements OnInit{
         this.estoqueService.excluir(estoqueSelecionado.unidade.id, estoqueSelecionado.vacina.id).subscribe(
           resultado => {
             Swal.fire('Estoque excluído com sucesso!','','success');
+            this.estoque = null;
             this.consultarTodosEstoques();
           },
           erro => {
@@ -79,11 +68,13 @@ export class EstoqueListagemComponent implements OnInit{
   }
 
   public limpar(){
-    this.estoque = new Estoque();
+    this.estoque = null;
+    this.consultarTodosEstoques();
   }
 
   public editar(estoque: Estoque): void{
-    this.router.navigate(['/estoque/cadastrar/', estoque.unidade.id, '/', estoque.vacina.id]);
+    this.router.navigate(['/estoque/cadastrar/', estoque.unidade.id, estoque.vacina.id]);
   }
 
 }
+
