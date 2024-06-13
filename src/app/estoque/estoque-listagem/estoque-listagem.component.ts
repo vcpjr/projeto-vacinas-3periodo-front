@@ -27,9 +27,7 @@ export class EstoqueListagemComponent implements OnInit{
   }
 
   ngOnInit(): void{
-
     this.consultarTodosEstoques();
-
   }
 
   private consultarTodosEstoques(): void{

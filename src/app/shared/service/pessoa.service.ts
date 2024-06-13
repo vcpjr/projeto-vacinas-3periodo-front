@@ -37,4 +37,8 @@ export class PessoaService {
     return this.httpClient.get<Array<Pessoa>>(this.API + '/consultarTodasPessoas');
   }
 
+  public excluir(id: number): Observable<boolean>{
+    return this.httpClient.delete<boolean>(this.API + '/' + id);
+  }
+
 }

@@ -123,17 +123,25 @@ export class EstoqueDetalheComponent {
     );
   }
 
-  public atualizar(): void {
-    this.estoqueService.atualizar(this.estoque).subscribe(
-      (resultado) => {
-        Swal.fire('Estoque atualizado com sucesso!', '', 'success');
-        this.voltar();
-      },
-      (erro) => {
-        Swal.fire('Erro ao tentar atualizar o estoque. ' +erro.error.mensagem, 'error');
-      }
-    );
-  }
+    public atualizar(): void {
+      this.estoqueService.atualizar(this.estoque).subscribe(
+        (resultado) => {
+          if (resultado) {
+            Swal.fire('Estoque atualizado com sucesso!', '', 'success');
+            this.voltar();
+          } else {
+            Swal.fire('O estoque da UNIDADE ' + this.estoque.unidade.nome
+                    + ' não possui nenhum lote da VACINA ' + this.estoque.vacina.nome
+                    + ' para ser atualizado. Verifique os lotes disponíveis dessa unidade e tente novamente.'
+                    , '', 'error');
+          }
+        },
+        (erro) => {
+          Swal.fire('Erro ao tentar atualizar o estoque. ' + erro.error.mensagem, '', 'error');
+        }
+      );
+    }
+
 
   public voltar(): void {
     this.router.navigate(['/estoque']);
