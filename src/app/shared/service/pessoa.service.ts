@@ -41,4 +41,8 @@ export class PessoaService {
     return this.httpClient.delete<boolean>(this.API + '/' + id);
   }
 
+  public consultarPorId(id: number): Observable<Pessoa>{
+    return this.httpClient.get<Pessoa>(this.API + '/' + id);
+  }
+
 }

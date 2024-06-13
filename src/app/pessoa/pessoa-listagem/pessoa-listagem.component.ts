@@ -70,12 +70,8 @@ export class PessoaListagemComponent implements OnInit{
     this.consultarTodasPessoas();
   }
 
-  /*
-  PARA O EDITAR FUNCIONAR FALTA PRIMEIRO IMPLEMENTAR O COMPONENTE DE CADASTRO E
-  DECLARAR A ROTA NO ARQUIVO DE ROTAS DO MÓDULO DE PESSOA.
-  */
   public editar(pessoaSelecionada: Pessoa): void{
-    this.router.navigate(['/pessoa/cadastrar/', pessoaSelecionada.id]);
+    this.router.navigate(['/pessoa/cadastro/', pessoaSelecionada.id]);
   }
 
 }
