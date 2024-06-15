@@ -144,7 +144,7 @@ export class EstoqueDetalheComponent {
 
 
   public voltar(): void {
-    this.router.navigate(['/estoque']);
+    this.router.navigate(['/estoque/listagem']);
   }
 
 }

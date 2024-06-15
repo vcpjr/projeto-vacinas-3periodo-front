@@ -1,0 +1,41 @@
+.filtros{
+  font-size: 17px;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: chocolate;
+}
+
+.botoes{
+  margin-top: 20px;
+}
+
+button {
+  border: 1px solid black;
+}
+
+.titulo{
+  font-weight: bold;
+  font-size: 17px;
+  font-style: italic;
+}
+
+.titulo{
+  display: block; /* Garante que o label seja um bloco para a centralização */
+  width: 100%; /* Garante que o label ocupe a largura completa do contêiner */
+  text-align: center;
+}
+
+select {
+  border: 0.5px solid #333;
+}
+
+input {
+  border: 0.5px solid #333;
+}
+
+.linha{
+  margin-top: 10px;
+}
+
+

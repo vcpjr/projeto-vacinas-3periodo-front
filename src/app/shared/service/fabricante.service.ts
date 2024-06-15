@@ -20,4 +20,8 @@ export class FabricanteService {
     return this.httpClient.get<Fabricante>(this.API + '/' + id);
   }
 
+  public consultarTodos(): Observable<Array<Fabricante>>{
+    return this.httpClient.get<Array<Fabricante>>(this.API + '/consultarTodos');
+  }
+
 }

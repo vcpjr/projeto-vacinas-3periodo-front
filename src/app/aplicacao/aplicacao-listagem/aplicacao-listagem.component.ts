@@ -10,6 +10,7 @@ import { Vacina } from '../../shared/model/vacina';
 import { AplicacaoService } from '../../shared/service/aplicacao.service';
 import { Aplicacao } from '../../shared/model/aplicacao';
 import { AplicacaoDTO } from '../../shared/model/dto/aplicacao.DTO';
+import { Router } from '@angular/router';
 
   @Component({
   selector: 'app-aplicacao-listagem',
@@ -30,7 +31,8 @@ import { AplicacaoDTO } from '../../shared/model/dto/aplicacao.DTO';
     private pessoaService : PessoaService,
     private unidadeService : UnidadeService,
     private vacinaService : VacinaService,
-    private aplicacaoService : AplicacaoService
+    private aplicacaoService : AplicacaoService,
+    private router: Router
   ){
   }
 
@@ -86,6 +88,10 @@ import { AplicacaoDTO } from '../../shared/model/dto/aplicacao.DTO';
 
   public limpar(){
     this.seletor = new AplicacaoSeletor();
+  }
+
+  public voltar(): void {
+    this.router.navigate(['/aplicacao']);
   }
 
 }

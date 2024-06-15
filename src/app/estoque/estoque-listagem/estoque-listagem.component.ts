@@ -18,6 +18,7 @@ export class EstoqueListagemComponent implements OnInit{
   public unidades : Array<Unidade> = new Array();
   public vacinas : Array<Vacina> = new Array();
   public estoque: Estoque | null = null;
+  public mostrarTabela: boolean = true;
 
   constructor(
     private estoqueService : EstoqueService,
@@ -27,7 +28,8 @@ export class EstoqueListagemComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    this.consultarTodosEstoques();
+    this.consultarTodos();
+    this.mostrarTabela = false;
   }
 
   private consultarTodosEstoques(): void{
@@ -39,6 +41,10 @@ export class EstoqueListagemComponent implements OnInit{
         Swal.fire('Erro ao consultar a lista de estoques','','error');
       }
     );
+  }
+
+  public editar(estoque: Estoque): void{
+    this.router.navigate(['/estoque/cadastrar/', estoque.unidade.id, estoque.vacina.id]);
   }
 
   public excluir(estoqueSelecionado: Estoque): void{
@@ -65,13 +71,23 @@ export class EstoqueListagemComponent implements OnInit{
     });
   }
 
-  public limpar(){
-    this.estoque = null;
-    this.consultarTodosEstoques();
+  public voltar(): void {
+    this.router.navigate(['/estoque']);
   }
 
-  public editar(estoque: Estoque): void{
-    this.router.navigate(['/estoque/cadastrar/', estoque.unidade.id, estoque.vacina.id]);
+  public limpar(): void {
+    this.mostrarTabela = false;
+    this.estoque = null;
+  }
+
+  public consultarTodos(): void {
+    this.estoque = null;
+    this.consultarTodosEstoques();
+    this.mostrarTabela = true;
+  }
+
+  public selecionarEstoque(): void {
+    this.mostrarTabela = true;
   }
 
 }

@@ -42,16 +42,23 @@
                 [(ngModel)]="aplicacao.dataAplicacao">
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-2">
-            <button type="button" class="form-control btn btn-secondary" (click)="limparFormulario()">
-              <i class="bi bi-x-circle">Limpar</i>
+        <div class="row mb-3">
+          <div class="form-group col-md-1">
+            <button type="submit" class="form-control btn btn-warning" (click)="voltar()">
+                <i class="bi bi-arrow-left"></i> Voltar
             </button>
           </div>
-          <div class="col-md-12 form-group">
-              <label for="btnCadastrar" class="form-label">&nbsp;</label>
-              <button type="submit" class="btn btn-primary" name="btnCadastrar"
-                      (click)="cadastrar()">Cadastrar</button>
+          <div class="form-group col-md-7">
+            <div class="row">
+              <div class="col-md-2">
+                <button type="button" class="form-control btn btn-secondary" (click)="limparFormulario()">
+                  <i class="bi bi-x-circle"></i> Limpar
+                </button>
+              </div>
+              <div class="col-md-4">
+                <button type="submit" class="btn btn-primary w-100" (click)="cadastrar()">Enviar</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

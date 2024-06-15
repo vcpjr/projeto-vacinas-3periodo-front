@@ -12,13 +12,22 @@ export class Pessoa{
 	login: string;
 	senha: string;
 	tipo: number;
-	doencaPreexistente: boolean; 
+	doencaPreexistente: boolean;
 
   constructor() {
+    // comentário 1
     this.enderecoDaPessoa = new Endereco();
     this.contatoDaPessoa = new Contato();
-    /* Inicializa se necessário. ex.:  [(ngModel)]="pessoa.enderecoDaPessoa.bairro" */
   }
 }
+/*
+    "comentário 1"
 
+    ex.:  [(ngModel)]="pessoa.enderecoDaPessoa.bairro" ou
+          [(ngModel)]="pessoa.contatoDaPessoa.telefone"
+
+    "Dentro do corpo do método construtor da classe para que os objetos Endereco e
+    Contato possam ser lidos quando o objeto Pessoa for instanciado"
+
+    */
 

@@ -9,6 +9,7 @@ import { Unidade } from '../../shared/model/unidade';
 import { AplicacaoService } from '../../shared/service/aplicacao.service';
 import { VacinaService } from '../../shared/service/vacina.service';
 import { UnidadeService } from '../../shared/service/unidade.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aplicacao-detalhe',
@@ -28,7 +29,8 @@ export class AplicacaoDetalheComponent {
     private pessoaService : PessoaService,
     private aplicacaoService : AplicacaoService,
     private vacinaService : VacinaService,
-    private unidadeService : UnidadeService
+    private unidadeService : UnidadeService,
+    private router: Router
   ){
 
   }
@@ -101,6 +103,10 @@ export class AplicacaoDetalheComponent {
         Swal.fire('Erro ao buscar a lista de pessoas','','error');
       }
     );
+  }
+
+  public voltar(): void {
+    this.router.navigate(['/aplicacao']);
   }
 
 }
