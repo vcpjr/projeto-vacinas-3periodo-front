@@ -1,3 +1,4 @@
+<pre>{{vacinaSeletor.contraIndicacao | json}}</pre>
 <div class="container">
   <form>
     <div class="card">
@@ -12,7 +13,7 @@
             <label for="vacina" class="form-label titulo">Selecione a vacina:</label><!-- COMENTÁRIO 2-->
             <select class="form-control" name="vacina" [(ngModel)]="vacinaSeletor.nomeVacina">
               <option value="" disabled selected>Clique para selecionar uma vacina</option>
-              <option *ngFor="let vDTO of listaVacinasDTO" [ngValue]="vDTO.vacina.nome">{{ vDTO.vacina.nome }} ({{ vDTO.vacina.categoria }})  ({{ vDTO.vacina.contraIndicacao ? 'Contraindicação: "Sim" ' : 'Contraindicação: "Não"' }})</option>
+              <option *ngFor="let v of listaDeVacinas" [ngValue]="v">{{ v }} </option>
             </select>
           </div>
 
@@ -21,7 +22,7 @@
             <select class="form-control" name="categoria" [(ngModel)]="vacinaSeletor.categoria">
               <option value="" disabled selected>Clique para selecionar uma categoria</option>
                                     <!-- COMENTÁRIO 1 NO ARQUIVO TYPE SCRIPT DO COMPONENTE -->
-              <option *ngFor="let vDTO of listaVacinasDTO" [ngValue]="vDTO.vacina.categoria">{{ vDTO.vacina.categoria }}</option>
+              <option *ngFor="let c of listaDeCategorias" [ngValue]="c">{{ c }}</option>
             </select>
           </div>
 
@@ -55,7 +56,7 @@
             <label for="fabricante" class="form-label titulo">Selecione o fabricante:</label>
             <select class="form-control" name="fabricante" [(ngModel)]="vacinaSeletor.nomeFabricante">
               <option value="" disabled selected>Clique para selecionar o fabricante</option>
-              <option *ngFor="let vDTO of listaVacinasDTO" [ngValue]="vDTO.fabricante.nome">{{ vDTO.fabricante.nome }}</option>
+              <option *ngFor="let f of listaDeFabricantes" [ngValue]="f">{{ f }}</option>
             </select>
           </div>
 
@@ -63,7 +64,7 @@
             <label for="unidade" class="form-label titulo">Selecione a unidade:</label>
             <select class="form-control" name="unidade" [(ngModel)]="vacinaSeletor.nomeUnidade">
               <option value="" disabled selected>Clique para selecionar a unidade desejada</option>
-              <option *ngFor="let vDTO of listaVacinasDTO" [ngValue]="vDTO.unidade.nome">{{ vDTO.unidade.nome }}</option>
+              <option *ngFor="let u of listaDeUnidades" [ngValue]="u">{{ u }}</option>
             </select>
           </div>
 
@@ -119,13 +120,13 @@
   <table class="table table-hover table-striped">
 
     <thead>
+      <th>Unidade</th>
       <th>Vacina</th>
       <th>Fabricante</th>
       <th>Categoria</th>
       <th>Idade Mínima</th> <!-- Ajuste feito aqui -->
       <th>Idade Máxima</th> <!-- Ajuste feito aqui -->
       <th>Contra-indicação</th> <!-- Ajuste feito aqui -->
-      <th>Unidade</th>
       <th>Endereco</th>
       <th>Contato</th>
       <th></th>
@@ -134,19 +135,19 @@
     <tbody>
 
       <tr *ngFor="let vDTO of listaVacinasDTO">
+        <td>{{ vDTO.unidade.nome }}</td>
         <td>{{ vDTO.vacina.nome }}</td>
         <td>{{ vDTO.fabricante.nome }} </td>
         <td>{{ vDTO.vacina.categoria }}</td>
         <td>{{ vDTO.vacina.idadeMinima }}</td>
         <td>{{ vDTO.vacina.idadeMaxima }}</td>
         <td>{{ vDTO.vacina.contraIndicacao ? 'Sim' : 'Não' }}</td>
-        <td>{{ vDTO.unidade.nome }}</td>
         <td>{{ vDTO.unidade.enderecoDaUnidade.logradouro }}, {{ vDTO.unidade.enderecoDaUnidade.numero }}, {{ vDTO.unidade.enderecoDaUnidade.bairro }}</td>
         <td>Tel.: {{ vDTO.unidade.contatoDaUnidade.telefone }} ({{ vDTO.unidade.contatoDaUnidade.email }})</td>
       </tr>
 
     </tbody>
-    
+
   </table>
 </div>
 <!--
