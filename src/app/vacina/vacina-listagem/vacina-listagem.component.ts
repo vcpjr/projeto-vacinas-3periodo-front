@@ -48,15 +48,19 @@ export class VacinaListagemComponent implements OnInit{
     this.estoqueService.consultarComFiltros(this.vacinaSeletor).subscribe(
       (resultado) => {
         this.listaVacinasDTO = resultado;
-        this.construirListaDeCategorias();
-        this.construirListaDeVacinas();
-        this.construirListaDeFabricantes();
-        this.construirListaDeUnidades();
+        this.construirListasDeDisponiveisParaVacinar();
       },
       (erro) => {
         Swal.fire('Erro ao consultar a lista de vacinas com o(s) filtro(s) selecionado(s). ','','error');
       }
     );
+  }
+
+  public construirListasDeDisponiveisParaVacinar(): void{
+    this.construirListaDeVacinas();
+    this.construirListaDeCategorias();
+    this.construirListaDeFabricantes();
+    this.construirListaDeUnidades();
   }
 
   public construirListaDeVacinas(): void{
@@ -75,6 +79,8 @@ export class VacinaListagemComponent implements OnInit{
     }
     this.listaDeVacinas.sort();
   }
+
+
 
 
   public construirListaDeCategorias(): void{
