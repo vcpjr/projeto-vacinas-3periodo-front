@@ -1,9 +1,11 @@
 .filtros{
-  font-size: 17px;
-  font-weight: lighter;
+  font-size: 15px;
+  font-weight: bold;
   text-align: center;
-  letter-spacing: 1px;
-  background-color: chocolate;
+  letter-spacing: 2px;
+  color:white;
+  font-style: italic;
+  background-color: blue;
 }
 
 .botoes{
@@ -14,13 +16,30 @@ button {
   border: 1px solid black;
 }
 
-.titulo{
-  font-weight: bold;
-  font-size: 17px;
-  font-style: italic;
+.botao-voltar{
+  font-size: 15px;
+  background-color:rgb(146, 124, 124);
+  font-weight: 500;
+  color:white;
 }
 
+.botao-consultarTodos{
+  font-weight: bolder;
+  font-size: 15px;
+  background-color:cadetblue;
+  letter-spacing: 1px;
+}
+
+.botao-limpar{
+  color: white;
+  font-weight: 500;
+}
+
+
 .titulo{
+  font-size: 20px;
+  font-weight: 500;
+  font-family: var(--bs-font-sans-serif);
   display: block; /* Garante que o label seja um bloco para a centralização */
   width: 100%; /* Garante que o label ocupe a largura completa do contêiner */
   text-align: center;
@@ -38,4 +57,6 @@ input {
   margin-top: 10px;
 }
 
-
+input, select{
+  background-color: goldenrod;
+}

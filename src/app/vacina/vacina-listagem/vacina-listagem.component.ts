@@ -39,8 +39,9 @@ export class VacinaListagemComponent implements OnInit{
     this.pesquisarComFiltros();
   }
 
-  public consultarTodos(): void {
+  public consultarTodasVacinas(): void {
     this.vacinaSeletor = new VacinaSeletor();
+    this.pesquisarComFiltros();
   }
 
   public pesquisarComFiltros(): void {

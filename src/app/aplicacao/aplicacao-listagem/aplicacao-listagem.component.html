@@ -8,6 +8,7 @@
               <div class="row">
                  <div class="col-md-6 form-group">
                       <label for="id" class="form-label">Selecione nome da pessoa</label>
+                      <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
                       <select class="form-control" name="id"
                               [(ngModel)]="seletor.idPessoaRecebeuAplicacao">
                           @for(p of pessoas; track p.id) {
@@ -17,6 +18,7 @@
                   </div>
                   <div class="col-md-6 form-group">
                       <label for="nomeUnidade" class="form-label">Selecione a unidade</label>
+                      <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
                       <select class="form-control" name="nomeUnidade"
                               [(ngModel)]="seletor.nomeUnidadeAplicacao">
                           @for(u of unidades; track u.id) {
@@ -24,45 +26,54 @@
                           }
                       </select>
                   </div>
-                  <div class="col-md-6 form-group">
-                    <label for="nomeVacina" class="form-label">Selecione a vacina aplicada</label>
-                    <select class="form-control" name="nomeVacina"
-                            [(ngModel)]="seletor.nomeVacinaAplicada">
-                        @for(v of vacinas; track v.id) {
-                           <option value="{{ v.nome }}">{{ v.nome }}</option>
-                        }
-                    </select>
+
+                  <div class="row campos-linha-debaixo">
+
+                    <div class="col-md-6 form-group">
+                      <label for="nomeVacina" class="form-label">Selecione a vacina aplicada</label>
+                      <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
+                      <select class="form-control" name="nomeVacina"
+                              [(ngModel)]="seletor.nomeVacinaAplicada">
+                          @for(v of vacinas; track v.id) {
+                             <option value="{{ v.nome }}">{{ v.nome }}</option>
+                          }
+                      </select>
+                    </div>
+                    <div class="col-md-3 form-group">
+                      <label for="dataInicial" class="form-label">Data inicial:</label>
+                      <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
+                      <input type="date" class="form-control" name="dataInicial"
+                              [(ngModel)]="seletor.dataInicioPesquisaSeletor">
+                    </div>
+                    <div class="col-md-3 form-group">
+                      <label for="dataFinal" class="form-label">Data final:</label>
+                      <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
+                      <input type="date" class="form-control" name="dataFinal"
+                              [(ngModel)] = "seletor.dataFinalPesquisaSeletor">
+                    </div>
+
+
                   </div>
-                  <div class="col-md-3 form-group">
-                    <label for="dataInicial" class="form-label">Data inicial:</label>
-                    <input type="date" class="form-control" name="dataInicial"
-                            [(ngModel)]="seletor.dataInicioPesquisaSeletor">
-                  </div>
-                  <div class="col-md-3 form-group">
-                    <label for="dataFinal" class="form-label">Data final:</label>
-                    <input type="date" class="form-control" name="dataFinal"
-                            [(ngModel)] = "seletor.dataFinalPesquisaSeletor">
-                  </div>
+
+
               </div>
-              <div class="row mb-3">
-                <div class="form-group col-md-1">
-                  <button type="submit" class="form-control btn btn-warning" (click)="voltar()">
-                      <i class="bi bi-arrow-left"></i> Voltar
+
+              <div class="row justify-content-center mt-5">
+                <div class="form-group col-md-2">
+                  <button type="submit" class="form-control btn btn-warning botao botao-voltar" (click)="voltar()">
+                  <i class="bi bi-arrow-left"></i> Voltar
                   </button>
                 </div>
-                <div class="form-group col-md-7">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <button type="button" class="form-control btn btn-secondary" (click)="limpar()">
-                        <i class="bi bi-x-circle"></i> Limpar
-                      </button>
-                    </div>
-                    <div class="col-md-4">
-                      <button type="submit" class="btn btn-primary w-100" (click)="pesquisar()">Pesquisar</button>
-                    </div>
-                  </div>
+                <div class="col-md-2">
+                  <button type="button" class="form-control btn btn-secondary botao" (click)="limpar()">
+                    <i class="bi bi-x-circle"></i> Limpar
+                  </button>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100 botao" (click)="pesquisar()">Pesquisar</button>
                 </div>
               </div>
+
           </div>
       </div>
   </form>

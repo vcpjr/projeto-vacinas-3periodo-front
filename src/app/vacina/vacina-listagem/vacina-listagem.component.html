@@ -1,4 +1,4 @@
-<pre>{{vacinaSeletor.contraIndicacao | json}}</pre>
+<!--<pre>{{vacinaSeletor.contraIndicacao | json}}</pre>/-->
 <div class="container">
   <form>
     <div class="card">
@@ -89,23 +89,24 @@
         <div class="row mb-3 botoes">
 
           <div class="form-group col-md-2">
-            <button type="submit" class="form-control btn btn-warning" (click)="voltar()">
+            <button type="submit" class="form-control btn botao-voltar" (click)="voltar()">
                 <i class="bi bi-arrow-left"></i> Voltar
             </button>
           </div>
 
+
           <div class="col-md-3">
-            <button type="button" class="form-control btn btn-secondary" (click)="limpar()">
+            <button type="button" class="form-control btn btn-secondary botao-limpar" (click)="limpar()">
               <i class="bi bi-x-circle"></i> Limpar
             </button>
           </div>
 
           <div class="col-md-3">
-              <button type="submit" class="btn btn-primary w-100" (click)="consultarTodos()">Consultar Todas Vacinas</button>
+              <button type="submit" class="btn botao-consultarTodos w-100" (click)="consultarTodasVacinas()">Consultar Todas Vacinas</button>
           </div>
 
           <div class="col-md-4">
-            <button type="submit" class="btn btn-primary w-100 filtros" (click)="pesquisarComFiltros()">Consultar Com Filtros</button>
+            <button type="submit" class="btn btn-primary w-100 filtros" (click)="pesquisarComFiltros()">"Consultar Com Filtros"</button>
           </div>
 
         </div>
