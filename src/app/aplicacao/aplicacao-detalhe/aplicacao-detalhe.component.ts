@@ -84,7 +84,7 @@ export class AplicacaoDetalheComponent {
   }
 
   public consultarTodasAsUnidades(): void{
-    this.unidadeService.consultarTodasUnidades().subscribe(
+    this.unidadeService.consultarTodas().subscribe(
       (resultado) => {
         this.unidades = resultado;
       },

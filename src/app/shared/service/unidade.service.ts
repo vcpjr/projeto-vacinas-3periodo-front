@@ -20,8 +20,8 @@ export class UnidadeService {
     return this.httpClient.get<Unidade>(this.API + '/' + id);
   }
 
-  public consultarTodasUnidades(): Observable<Array<Unidade>>{
-    return this.httpClient.get<Array<Unidade>>(this.API + '/consultarTodasUnidades');
+  public consultarTodas(): Observable<Array<Unidade>>{
+    return this.httpClient.get<Array<Unidade>>(this.API + '/consultarTodas');
   }
 
 }

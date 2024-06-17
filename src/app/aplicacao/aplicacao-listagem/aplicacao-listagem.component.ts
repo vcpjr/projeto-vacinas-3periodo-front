@@ -54,7 +54,7 @@ import { Router } from '@angular/router';
   }
 
   public consultarTodasAsUnidades(): void{
-    this.unidadeService.consultarTodasUnidades().subscribe(
+    this.unidadeService.consultarTodas().subscribe(
       (resultado) => {
         this.unidades = resultado;
       },

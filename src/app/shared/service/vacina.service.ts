@@ -19,6 +19,10 @@ export class VacinaService {
     return this.httpClient.get<Array<Vacina>>(this.API + '/consultarTodasVacinas');
   }
 
+  public consultarTodasCategorias(): Observable<Array<string>>{
+    return this.httpClient.get<Array<string>>(this.API + '/consultarTodasCategorias');
+  }
+
   public consultarPorId(id: number): Observable<Vacina>{
     return this.httpClient.get<Vacina>(this.API + '/' + id);
   }

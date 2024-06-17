@@ -7,26 +7,25 @@
       </div>
       <div class="card-body">
 
-        <div class="row">
+        <div class="row linha1">
 
-          <div class="col-md-6 form-group">
-            <label for="vacina" class="form-label titulo">Selecione a vacina:</label><!-- COMENTÁRIO 2-->
+          <div class="col-md-3 form-group">
+            <label for="vacina" class="form-label titulo">Vacina:</label>
             <select class="form-control" name="vacina" [(ngModel)]="vacinaSeletor.nomeVacina">
-              <option value="" disabled selected>Clique para selecionar uma vacina</option>
-              <option *ngFor="let v of listaDeVacinas" [ngValue]="v">{{ v }} </option>
+              <option value="" disabled selected>Clique numa vacina para selecioná-la</option>
+              <option *ngFor="let v of listaDeVacinas" [ngValue]="v.nome"> {{ v.nome }} </option>
             </select>
           </div>
 
           <div class="col-md-3 form-group">
-            <label for="categoria" class="form-label titulo">Selecione a categoria:</label>
+            <label for="categoria" class="form-label titulo">Categoria:</label>
             <select class="form-control" name="categoria" [(ngModel)]="vacinaSeletor.categoria">
-              <option value="" disabled selected>Clique para selecionar uma categoria</option>
-                                    <!-- COMENTÁRIO 1 NO ARQUIVO TYPE SCRIPT DO COMPONENTE -->
+              <option value="" disabled selected>Clique numa categoria para selecioná-la</option>
               <option *ngFor="let c of listaDeCategorias" [ngValue]="c">{{ c }}</option>
             </select>
           </div>
 
-          <div class="col-md-3 form-group">
+          <div class="col-md-2 form-group">
             <label for="contraInidicacao" class="form-label titulo">Contra Indicação:</label>
             <select class="form-control" name="contraInidicacao" [(ngModel)]="vacinaSeletor.contraIndicacao">
               <!-- COMENTÁRIO 3 -->
@@ -36,55 +35,55 @@
             </select>
           </div>
 
-        </div>
-
-        <div class="row">
-
-          <div class="col-md-2 form-group linha">
+          <div class="col-md-2 form-group">
             <label for="idadeMinima" class="form-label titulo">Idade Minínima:</label>
             <input type="number" id="idadeMinima" class="form-control" name="idadeMinima"
                   [(ngModel)]="vacinaSeletor.idadeMinima" placeholder="Indique a idade">
           </div>
 
-          <div class="col-md-2 form-group linha">
+          <div class="col-md-2 form-group">
             <label for="idadeMaxima" class="form-label titulo">Idade Máxima:</label>
             <input type="number" id="idadeMaxima" class="form-control" name="idadeMaxima"
                   [(ngModel)]="vacinaSeletor.idadeMaxima" placeholder="Indique a idade">
           </div>
 
-          <div class="col-md-3 form-group linha">
-            <label for="fabricante" class="form-label titulo">Selecione o fabricante:</label>
-            <select class="form-control" name="fabricante" [(ngModel)]="vacinaSeletor.nomeFabricante">
-              <option value="" disabled selected>Clique para selecionar o fabricante</option>
-              <option *ngFor="let f of listaDeFabricantes" [ngValue]="f">{{ f }}</option>
-            </select>
-          </div>
-
-          <div class="col-md-5 form-group linha">
-            <label for="unidade" class="form-label titulo">Selecione a unidade:</label>
-            <select class="form-control" name="unidade" [(ngModel)]="vacinaSeletor.nomeUnidade">
-              <option value="" disabled selected>Clique para selecionar a unidade desejada</option>
-              <option *ngFor="let u of listaDeUnidades" [ngValue]="u">{{ u }}</option>
-            </select>
-          </div>
-
         </div>
 
-        <div class="row">
+        <div class="row linha2">
+
+
+
+          <div class="col-md-2 form-group linha">
+            <label for="fabricante" class="form-label titulo">Fabricante:</label>
+            <select class="form-control" name="fabricante" [(ngModel)]="vacinaSeletor.nomeFabricante">
+              <option value="" disabled selected>Clique num fabricante para selecioná-lo</option>
+              <option *ngFor="let f of listaDeFabricantes" [ngValue]="f.nome">{{ f.nome }}</option>
+            </select>
+          </div>
+
+          <div class="col-md-2 form-group linha">
+            <label for="unidade" class="form-label titulo">Unidade:</label>
+            <select class="form-control" name="unidade" [(ngModel)]="vacinaSeletor.nomeUnidade">
+              <option value="" disabled selected>Clique numa unidade para selecioná-la</option>
+              <option *ngFor="let u of listaDeUnidades" [ngValue]="u.nome">{{ u.nome }}</option>
+            </select>
+          </div>
 
           <div class="col-md-4 form-group linha">
             <label for="nomeBairro" class="form-label titulo">Nome do Bairro:</label>
             <input type="text" id="nomeBairro" class="form-control" name="nomeBairro"
-                  [(ngModel)]="vacinaSeletor.nomeBairro" placeholder="Escreva o nome do bairro">
+                  [(ngModel)]="vacinaSeletor.nomeBairro" placeholder="Escreva aqui o nome do bairro desejado">
           </div>
 
           <div class="col-md-4 form-group linha">
             <label for="numeroCep" class="form-label titulo">Número do CEP:</label>
             <input type="text" id="numeroCep" class="form-control" name="numeroCep"
-                  [(ngModel)]="vacinaSeletor.numeroCep" placeholder="Escreva o número do CEP">
+                  [(ngModel)]="vacinaSeletor.numeroCep" placeholder="Escreva aqui o número do CEP desejado">
           </div>
 
+
         </div>
+
 
         <div class="row mb-3 botoes">
 
@@ -102,7 +101,7 @@
           </div>
 
           <div class="col-md-3">
-              <button type="submit" class="btn botao-consultarTodos w-100" (click)="consultarTodasVacinas()">Consultar Todas Vacinas</button>
+              <button type="submit" class="btn botao-consultarTodos w-100" (click)="pesquisarSemFiltros()">Pesquisar Sem Filtros</button>
           </div>
 
           <div class="col-md-4">

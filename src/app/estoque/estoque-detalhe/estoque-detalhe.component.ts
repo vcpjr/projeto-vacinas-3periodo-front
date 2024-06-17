@@ -58,7 +58,7 @@ export class EstoqueDetalheComponent {
   }
 
   public consultarTodasUnidades(){
-    this.unidadeService.consultarTodasUnidades().subscribe(
+    this.unidadeService.consultarTodas().subscribe(
       (resultado) => {
         this.unidades = resultado;
       },
