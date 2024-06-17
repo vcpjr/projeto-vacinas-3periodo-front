@@ -88,6 +88,7 @@ import { Router } from '@angular/router';
 
   public limpar(){
     this.seletor = new AplicacaoSeletor();
+    this.aplicacoesDTO =[];
   }
 
   public voltar(): void {

@@ -1,8 +1,8 @@
+<h5>{{idUnidade && idVacina? 'Editar' : 'Cadastro de'}} Estoque </h5>
 <form class="p-4">
-  <div class="row mb-3">
-    <h5>{{idUnidade && idVacina? 'Editar' : 'Cadastro de'}} Estoque</h5>
-    <div class="form-group col-md-6">
-      <label for="unidade">Unidade</label>
+  <div class="row justify-content-center mt-2">
+    <div class="form-group col-md-2">
+      <label for="unidade" class="titulo">Unidade</label>
       <select class="form-control" name="unidade" id="unidade"
           [compareWith]="compareById"
           [(ngModel)]="estoque.unidade" required>
@@ -12,8 +12,8 @@
         }
       </select>
     </div>
-    <div class="form-group col-md-6">
-      <label for="vacina">Vacina</label>
+    <div class="form-group col-md-2">
+      <label for="vacina" class="titulo">Vacina</label>
       <select class="form-control" name="vacina" id="vacina"
           [compareWith]="compareById"
           [(ngModel)]="estoque.vacina" required>
@@ -23,41 +23,35 @@
         }
       </select>
     </div>
-    <div class="col-md-6 form-group">
-      <label for="qtde" class="form-label">Quantidade</label>
+    <div class="form-group col-md-2">
+      <label for="qtde" class="titulo">Quantidade</label>
       <input type="number" id="qtde" class="form-control" name="qtde"
-            [(ngModel)]="estoque.quantidade" placeholder="SELECIONE A QUANTIDADE">
+            [(ngModel)]="estoque.quantidade">
+    </div>
+    <div class="form-group col-md-2">
+      <label for="dataLote" class="titulo">Data do Lote</label>
+      <input type="date" class="form-control" name="dataLote" id="dataLote"
+      [(ngModel)]="estoque.dataLote" required>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="validade" class="titulo">Validade</label>
+      <input type="date" class="form-control" name="validade" id="validade"
+      [(ngModel)]="estoque.validade" required>
     </div>
     </div>
-    <div class="row mb-3">
+    <div class="row justify-content-center mt-5">
       <div class="form-group col-md-2">
-        <label for="dataLote">Data do Lote</label>
-        <input type="date" class="form-control" name="dataLote" id="dataLote"
-        [(ngModel)]="estoque.dataLote" required>
+        <button type="submit" class="form-control btn btn-warning botao-voltar" (click)="voltar()">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </button>
       </div>
-      <div class="form-group col-md-2">
-        <label for="validade">Validade</label>
-        <input type="date" class="form-control" name="validade" id="validade"
-        [(ngModel)]="estoque.validade" required>
+      <div class="col-md-2">
+        <button type="button" class="form-control btn btn-secondary botao-limpar" (click)="limparFormulario()">
+          <i class="bi bi-x-circle"></i> Limpar
+        </button>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="form-group col-md-6">
-        <div class="row">
-          <div class="form-group col-md-2">
-            <button type="submit" class="form-control btn btn-warning" (click)="voltar()">
-                <i class="bi bi-arrow-left"></i> Voltar
-            </button>
-          </div>
-          <div class="col-md-2">
-            <button type="button" class="form-control btn btn-secondary" (click)="limparFormulario()">
-              <i class="bi bi-x-circle"></i> Limpar
-            </button>
-          </div>
-          <div class="col-md-4">
-            <button type="submit" class="btn btn-primary w-100" (click)="salvar()">Enviar</button>
-          </div>
-        </div>
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-primary w-100 botao-cadastrar" (click)="salvar()">Cadastrar</button>
       </div>
     </div>
 </form>

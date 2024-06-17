@@ -1,5 +1,5 @@
 .filtros{
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
@@ -21,18 +21,17 @@ button {
   color:white;
 }
 
+.botao-limpar{
+  font-size: 15px;
+  font-weight: 500;
+}
+
 .botao-consultarTodos{
   font-weight: bolder;
   font-size: 15px;
   background-color:cadetblue;
   letter-spacing: 1px;
 }
-
-.botao-limpar{
-  color: white;
-  font-weight: 500;
-}
-
 
 .titulo{
   font-size: 20px;
@@ -63,5 +62,6 @@ input, select{
 .linha1, .linha2{
   margin-right: 5px;
 }
+
 
 

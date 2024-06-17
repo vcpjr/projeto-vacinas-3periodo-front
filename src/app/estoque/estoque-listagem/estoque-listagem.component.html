@@ -5,31 +5,28 @@
         <h4>Estoques</h4>
       </div>
       <div class="card-body">
-        <div class="row">
+        <div class="row justify-content-center mt-2">
           <div class="col-md-4 form-group">
-            <label for="estoqueUnidade" class="form-label">Selecione o estoque:</label><!-- COMENTÁRIO 2-->
+            <label for="estoqueUnidade" class="form-label titulo">Selecione o estoque (clique abaixo):</label><!-- COMENTÁRIO 2-->
             <select class="form-control" name="estoqueUnidade" [(ngModel)]="estoque" (change)="selecionarEstoque()">
+              <option value="" disabled selected>SELECIONE O ESTOQUE DESEJADO: </option>
               <option *ngFor="let e of estoques" [ngValue]="e">{{ e.unidade.nome }} ({{ e.vacina.nome }})</option>
             </select>
           </div>
         </div>
-        <div class="row mb-3">
+        <div class="row justify-content-center mt-4">
           <div class="form-group col-md-2">
-            <button type="submit" class="form-control btn btn-warning" (click)="voltar()">
+            <button type="submit" class="form-control btn btn-warning botao-voltar" (click)="voltar()">
                 <i class="bi bi-arrow-left"></i> Voltar
             </button>
           </div>
-          <div class="form-group col-md-7">
-            <div class="row">
-              <div class="col-md-3">
-                <button type="button" class="form-control btn btn-secondary" (click)="limpar()">
-                  <i class="bi bi-x-circle"></i> Limpar
-                </button>
-              </div>
-              <div class="col-md-5">
-                <button type="submit" class="btn btn-primary w-100" (click)="consultarTodos()">Consultar Todos</button>
-              </div>
-            </div>
+          <div class="col-md-2">
+            <button type="button" class="form-control btn btn-secondary botao-limpar" (click)="limpar()">
+              <i class="bi bi-x-circle"></i> Limpar
+            </button>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100 botao-consultar" (click)="consultarTodos()">Consultar Todos</button>
           </div>
         </div>
       </div>

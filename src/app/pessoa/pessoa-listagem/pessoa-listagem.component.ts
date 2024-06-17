@@ -36,6 +36,10 @@ export class PessoaListagemComponent implements OnInit{
     );
   }
 
+  public editar(pessoaSelecionada: Pessoa): void{
+    this.router.navigate(['/pessoa/cadastro/', pessoaSelecionada.id]);
+  }
+
   public excluir(pessoaSelecionada: Pessoa): void{
     Swal.fire({
       title: 'Deseja realmente excluir o seu cadastro do sistema?',
@@ -65,13 +69,17 @@ export class PessoaListagemComponent implements OnInit{
     });
   }
 
-  public limpar(){
-    this.pessoa = null;
-    this.consultarTodasPessoas();
+  public voltar(): void {
+    this.router.navigate(['/pessoa']);
   }
 
-  public editar(pessoaSelecionada: Pessoa): void{
-    this.router.navigate(['/pessoa/cadastro/', pessoaSelecionada.id]);
+  public limpar(){
+
+
+  }
+
+  public consultarTodos(): void{
+
   }
 
 }

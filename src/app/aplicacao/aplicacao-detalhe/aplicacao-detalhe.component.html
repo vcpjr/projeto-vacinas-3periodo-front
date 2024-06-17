@@ -5,10 +5,7 @@
           <h4>Aplicação</h4>
       </div>
       <div class="card-body">
-
-
         <div class="row">
-
           <div class="col-md-3 form-group">
               <label for="nomePessoa" class="form-label">Selecione o nome da pessoa</label>
               <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
@@ -42,38 +39,28 @@
                 }
             </select>
           </div>
-
           <div class="col-md-3 form-group">
             <label for="dataAplicacao" class="form-label">Data da Aplicação:</label>
             <small class="form-text text-muted text-center d-block"><i>(Clique no campo abaixo)</i></small>
             <input type="date" class="form-control" name="dataAplicacao" id="dataAplicacao"
                 [(ngModel)]="aplicacao.dataAplicacao">
           </div>
-
-
         </div>
-
         <div class="row justify-content-center mt-4">
-
           <div class="form-group col-md-2">
             <button type="submit" class="form-control btn botao-voltar" (click)="voltar()">
                 <i class="bi bi-arrow-left"></i> Voltar
             </button>
           </div>
-
           <div class="col-md-3">
             <button type="button" class="form-control btn botao-limpar" (click)="limparFormulario()">
               <i class="bi bi-x-circle"></i> Limpar
             </button>
           </div>
-
           <div class="col-md-4">
             <button type="submit" class="btn btn-primary w-100 botao-cadastrar" (click)="cadastrar()">Cadastrar Aplicação</button>
           </div>
-
-
         </div>
-
       </div>
     </div>
   </form>

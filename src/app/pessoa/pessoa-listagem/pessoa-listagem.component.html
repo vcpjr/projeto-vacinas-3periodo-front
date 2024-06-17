@@ -5,20 +5,31 @@
         <h4>Usuário</h4>
       </div>
       <div class="card-body">
-        <div class="row">
+        <div class="row justify-content-center mt-4">
           <div class="col-md-6 form-group">
-            <label for="pessoa" class="form-label">Selecione o usuário:</label>
+            <label for="pessoa" class="form-label titulo">Selecione o usuário:</label>
             <select class="form-control" name="pessoa" [(ngModel)]="pessoa">
               <option *ngFor="let p of pessoas" [ngValue]="p"> {{ p.nome }} </option>
             </select>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 form-group">
-            <label for="btnLimpar" class="form-label">&nbsp;</label>
-            <button type="button" class="btn btn-warning" (click)="limpar()">Consultar Todos</button>
+
+        <div class="row justify-content-center mt-4">
+          <div class="form-group col-md-2">
+            <button type="submit" class="form-control btn btn-warning botao-voltar" (click)="voltar()">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </button>
+          </div>
+          <div class="col-md-2">
+            <button type="button" class="form-control btn btn-secondary botao-limpar" (click)="limpar()">
+              <i class="bi bi-x-circle"></i> Limpar
+            </button>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary w-100 botao-consultar" (click)="consultarTodos()">Consultar Todos</button>
           </div>
         </div>
+
       </div>
     </div>
   </form>
