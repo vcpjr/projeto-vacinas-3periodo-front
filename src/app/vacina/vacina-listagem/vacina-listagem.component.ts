@@ -24,6 +24,7 @@ export class VacinaListagemComponent implements OnInit{
     public listaDeCategorias : Array<string> = new Array();
     public listaDeFabricantes : Array<Fabricante> = new Array();
     public listaDeUnidades : Array<Unidade> = new Array();
+    public mostrarTabela: boolean = true;
 
 
     constructor(
@@ -36,6 +37,7 @@ export class VacinaListagemComponent implements OnInit{
     }
 
   ngOnInit(): void {
+    this.mostrarTabela = false;
     this.consultarTodasVacinas();
     this.consultarTodasCategorias();
     this.consultarTodosFabricantes();
@@ -79,6 +81,16 @@ export class VacinaListagemComponent implements OnInit{
   public pesquisarSemFiltros(): void {
     this.vacinaSeletor = new VacinaSeletor();
     this.pesquisarComFiltros();
+    this.mostrarTabela = true;
+  }
+
+  selecionarFiltros(): void{
+    if(this.vacinaSeletor.contraIndicacao == null ){
+      Swal.fire('Para efetuar a pesquisa com filtros é preciso pelo menos definir se a vacina tem ou não contraindicação. ','','error')
+    } else{
+      this.pesquisarComFiltros();
+      this.mostrarTabela = true;
+    }
   }
 
   public pesquisarComFiltros(): void {
@@ -95,7 +107,7 @@ export class VacinaListagemComponent implements OnInit{
   public limpar(): void {
     this.vacinaSeletor = new VacinaSeletor();
     this.listaVacinasDTO = new Array();
-    this.pesquisarComFiltros();
+    this.mostrarTabela = false;
   }
 
 }

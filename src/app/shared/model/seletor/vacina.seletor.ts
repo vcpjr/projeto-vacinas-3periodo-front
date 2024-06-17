@@ -6,7 +6,7 @@ export class VacinaSeletor extends BaseSeletor{
 	categoria: string;
 	idadeMinima: number;
 	idadeMaxima: number;
-	contraIndicacao: boolean;
+	contraIndicacao: Boolean;
 	nomeFabricante: string;
 	nomeUnidade: string;
 	nomeBairro: string;

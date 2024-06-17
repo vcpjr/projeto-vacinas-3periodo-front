@@ -15,8 +15,6 @@ import { Vacina } from '../../shared/model/vacina';
 export class EstoqueListagemComponent implements OnInit{
 
   public estoques : Array<Estoque> = new Array();
-  public unidades : Array<Unidade> = new Array();
-  public vacinas : Array<Vacina> = new Array();
   public estoque: Estoque | null = null;
   public mostrarTabela: boolean = true;
 
@@ -28,7 +26,7 @@ export class EstoqueListagemComponent implements OnInit{
   }
 
   ngOnInit(): void{
-    this.consultarTodos();
+    this.consultarTodosEstoques();
     this.mostrarTabela = false;
   }
 
@@ -82,12 +80,19 @@ export class EstoqueListagemComponent implements OnInit{
 
   public consultarTodos(): void {
     this.estoque = null;
-    this.consultarTodosEstoques();
     this.mostrarTabela = true;
   }
 
   public selecionarEstoque(): void {
     this.mostrarTabela = true;
+  }
+
+  definirTipoDaExibicao(): Estoque[] {
+    if (this.estoque) {
+      return [this.estoque];
+    } else {
+      return this.estoques;
+    }
   }
 
 }

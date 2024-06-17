@@ -63,5 +63,8 @@ input, select{
   margin-right: 5px;
 }
 
-
+input::placeholder {
+  text-align: center;
+  padding-top: 10px;
+}
 

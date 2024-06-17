@@ -13,6 +13,7 @@ export class PessoaListagemComponent implements OnInit{
                         // COMENTÁRIO 1
   public pessoa: Pessoa | null = null;
   public pessoas: Array<Pessoa> = new Array();
+  public mostrarTabela: boolean = true;
 
   constructor(
     private pessoaService : PessoaService,
@@ -23,6 +24,7 @@ export class PessoaListagemComponent implements OnInit{
 
   ngOnInit(): void {
     this.consultarTodasPessoas();
+    this.mostrarTabela = false;
   }
 
   private consultarTodasPessoas(): void{
@@ -74,13 +76,28 @@ export class PessoaListagemComponent implements OnInit{
   }
 
   public limpar(){
-
-
+    this.mostrarTabela = false;
+    this.pessoa = null;
   }
 
   public consultarTodos(): void{
-
+    this.pessoa = null;
+    this.mostrarTabela = true;
   }
+
+  public exibirPessoa(): void {
+    this.mostrarTabela = true;
+  }
+
+  //COMENTÁRIO 2
+  definirTipoDaExibicao(): Pessoa[] {
+    if (this.pessoa) {
+      return [this.pessoa];
+    } else {
+      return this.pessoas;
+    }
+  }
+
 
 }
 
@@ -102,5 +119,15 @@ até que seja atribuído um objeto do tipo Pessoa.
 
 Portanto, public pessoa: Pessoa | null = null; significa que a variável
 pessoa pode ser do tipo Pessoa ou null, e inicialmente é definida como null.
+
+*/
+
+/*
+                                    COMENTÁRIO 2
+
+Se this.pessoa não é null, retorna um array contendo apenas a pessoa selecionada ([this.pessoa]).
+
+Caso contrário, retorna a lista de todas as pessoas (this.pessoas).
+Se this.pessoas for null ou undefined, retorna um array vazio [].
 
 */
