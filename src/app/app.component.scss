@@ -19,3 +19,35 @@
   font-size: 19px;
   font-style: italic;
 }
+
+.titulo-do-sistema{
+  font-size: 23px;
+  font-style: italic;
+}
+
+.func{
+  font-style: italic;
+  color: rgb(13, 110, 253);
+}
+
+.func:hover{
+  text-decoration: none;
+  text-decoration: underline;
+  background-color:goldenrod;
+}
+
+.titulo{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.about:hover{
+  text-decoration: underline;
+}
+
+.opcoes-do-menu{
+  margin-right: 80px;
+}
+
+
+

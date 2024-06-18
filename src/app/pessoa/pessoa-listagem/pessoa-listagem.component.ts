@@ -98,7 +98,6 @@ export class PessoaListagemComponent implements OnInit{
     }
   }
 
-
 }
 
 /*

@@ -26,7 +26,6 @@ export class VacinaListagemComponent implements OnInit{
     public listaDeUnidades : Array<Unidade> = new Array();
     public mostrarTabela: boolean = true;
 
-
     constructor(
       private estoqueService : EstoqueService,
       private vacinaService : VacinaService,
@@ -73,10 +72,9 @@ export class VacinaListagemComponent implements OnInit{
   private consultarTodasUnidades(): void{
     this.unidadeService.consultarTodas().subscribe(
       (resultado => this.listaDeUnidades = resultado),
-      (erro => Swal.fire('Erro ao consultar a lista de fabricantes para preencher o combo box','','error'))
+      (erro => Swal.fire('Erro ao consultar a lista de unidades para preencher o combo box','','error'))
     );
   }
-
 
   public pesquisarSemFiltros(): void {
     this.vacinaSeletor = new VacinaSeletor();
