@@ -13,6 +13,4 @@ export class AppComponent {
 
   title = 'projeto-vacinas-3periodo-front';
 
-
-
 }

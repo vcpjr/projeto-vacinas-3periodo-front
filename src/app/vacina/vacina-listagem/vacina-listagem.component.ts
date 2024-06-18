@@ -83,7 +83,7 @@ export class VacinaListagemComponent implements OnInit{
   }
 
   selecionarFiltros(): void{
-    if(this.vacinaSeletor.contraIndicacao == null ){
+    if(!this.vacinaSeletor.contraIndicacao){
       Swal.fire('Para efetuar a pesquisa com filtros é preciso pelo menos definir se a vacina tem ou não contraindicação. ','','error')
     } else{
       this.pesquisarComFiltros();
