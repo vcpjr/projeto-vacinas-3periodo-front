@@ -103,8 +103,32 @@ export class EstoqueDetalheComponent {
     if(this.idUnidade && this.idVacina){
       this.atualizar();
     } else {
-      this.inserir();
+      if(this.validarFormulario()){
+        this.inserir();
+      }
     }
+  }
+
+  private validarFormulario(): boolean{
+
+    const dataAtual = new Date();
+    const dataMais30Dias = new Date(dataAtual);
+    dataMais30Dias.setDate(dataMais30Dias.getDate() + 30);
+
+    if (!this.estoque.unidade){
+      Swal.fire('Por favor, selecione a unidade onde deseja inserir o registro de estoque da vacina desejada.', '', 'error');
+      return false;
+    } else if(!this.estoque.vacina){
+      Swal.fire('Por favor, selecione a vacina do estoque da unidade a ser cadastrado.', '', 'error');
+      return false;
+    } else if(!this.estoque.quantidade){
+      Swal.fire('Por favor, escreva a quantidade do lote da vacina a ser cadastrado.', '', 'error');
+      return false;
+    } else if (new Date(this.estoque.validade) < dataMais30Dias) {
+      Swal.fire('A data da validade precisa ser superior a data atual, em 30 dias corridos.', '', 'error');
+      return false;
+    }
+    return true;
   }
 
   public inserir(): void {
