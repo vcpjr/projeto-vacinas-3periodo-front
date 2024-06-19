@@ -75,8 +75,7 @@ export class PessoaDetalheComponent implements OnInit{
   }
 
   private validarFormulario(): boolean{
-
-    if (!this.pessoa.nome){
+    if(!this.pessoa.nome){
       Swal.fire('Por favor, preencha o campo nome.', '', 'error');
       return false;
     } else if(!this.pessoa.dataNascimento){
@@ -102,6 +101,21 @@ export class PessoaDetalheComponent implements OnInit{
       return false;
     } else if(!this.pessoa.enderecoDaPessoa.cep) {
       Swal.fire('Por favor, preencha o campo CEP.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.pais) {
+      Swal.fire('Por favor, preencha o campo País.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.estado) {
+      Swal.fire('Por favor, preencha o campo estado.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.localidade) {
+      Swal.fire('Por favor, preencha o campo cidade.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.bairro) {
+      Swal.fire('Por favor, preencha o campo bairro.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.logradouro) {
+      Swal.fire('Por favor, preencha o campo logradouro.', '', 'error');
       return false;
     } else if(!this.pessoa.enderecoDaPessoa.numero) {
       Swal.fire('Por favor, preencha o campo número.', '', 'error');
