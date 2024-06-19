@@ -48,10 +48,12 @@ export class PessoaDetalheComponent implements OnInit{
   }
 
   public salvar(): void{
-    if(this.idPessoa){
+    if(this.idPessoa && this.validarFormulario()){
       this.atualizar();
     } else {
-      this.inserir();
+      if(this.validarFormulario()){
+        this.inserir();
+      }
     }
   }
 
@@ -70,6 +72,48 @@ export class PessoaDetalheComponent implements OnInit{
         );
       }
     );
+  }
+
+  private validarFormulario(): boolean{
+
+    if (!this.pessoa.nome){
+      Swal.fire('Por favor, preencha o campo nome.', '', 'error');
+      return false;
+    } else if(!this.pessoa.dataNascimento){
+      Swal.fire('Por favor, insira a sua data de nascimento.', '', 'error');
+      return false;
+    } else if(!this.pessoa.tipo){
+      Swal.fire('Por favor, selecione o tipo.', '', 'error');
+      return false;
+    } else if(!this.pessoa.sexo){
+      Swal.fire('Por favor, selecione uma opção no campo sexo.', '', 'error');
+      return false;
+    } else if(!this.pessoa.cpf) {
+      Swal.fire('Por favor, insira o número do seu cpf.', '', 'error');
+      return false;
+    } else if(!this.pessoa.login) {
+      Swal.fire('Por favor, preencha o campo login.', '', 'error');
+      return false;
+    } else if(!this.pessoa.senha) {
+      Swal.fire('Por favor, preencha o campo senha.', '', 'error');
+      return false;
+    } else if(this.pessoa.doencaPreexistente == null) {
+      Swal.fire('Por favor, preencha o campo doença preexistente.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.cep) {
+      Swal.fire('Por favor, preencha o campo CEP.', '', 'error');
+      return false;
+    } else if(!this.pessoa.enderecoDaPessoa.numero) {
+      Swal.fire('Por favor, preencha o campo número.', '', 'error');
+      return false;
+    } else if(!this.pessoa.contatoDaPessoa.telefone) {
+      Swal.fire('Por favor, preencha o campo telefone.', '', 'error');
+      return false;
+    } else if(!this.pessoa.contatoDaPessoa.email) {
+      Swal.fire('Por favor, preencha o campo email.', '', 'error');
+      return false;
+    }
+    return true;
   }
 
   public atualizar(): void {

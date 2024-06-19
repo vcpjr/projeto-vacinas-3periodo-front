@@ -64,15 +64,6 @@ export class AplicacaoDetalheComponent {
 
   private validarFormulario(): boolean{
 
-    /*
-    const dataAtual = new Date();
-const dia = dataAtual.getDate();
-const mes = dataAtual.getMonth() + 1; // Os meses são indexados a partir de 0
-const ano = dataAtual.getFullYear();
-
-console.log(`Data atual: ${dia}/${mes}/${ano}`);
-    */
-
     const dataAtual = new Date();
     const dataAplicacao = new Date(this.aplicacao.dataAplicacao);
     const confirmaDataAtual = dataAplicacao.getFullYear() === dataAtual.getFullYear() &&

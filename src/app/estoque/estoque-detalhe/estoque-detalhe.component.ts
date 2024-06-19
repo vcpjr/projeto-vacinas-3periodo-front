@@ -100,7 +100,7 @@ export class EstoqueDetalheComponent {
   }
 
   public salvar(): void{
-    if(this.idUnidade && this.idVacina){
+    if(this.idUnidade && this.idVacina && this.validarFormulario()){
       this.atualizar();
     } else {
       if(this.validarFormulario()){
@@ -112,8 +112,10 @@ export class EstoqueDetalheComponent {
   private validarFormulario(): boolean{
 
     const dataAtual = new Date();
-    const dataMais30Dias = new Date(dataAtual);
-    dataMais30Dias.setDate(dataMais30Dias.getDate() + 30);
+    const dataMenos60Dias = new Date();
+    dataMenos60Dias.setDate(dataAtual.getDate() - 60);
+    const dataMais365Dias = new Date();
+    dataMais365Dias.setDate(dataAtual.getDate() + 365);
 
     if (!this.estoque.unidade){
       Swal.fire('Por favor, selecione a unidade onde deseja inserir o registro de estoque da vacina desejada.', '', 'error');
@@ -124,8 +126,14 @@ export class EstoqueDetalheComponent {
     } else if(!this.estoque.quantidade){
       Swal.fire('Por favor, escreva a quantidade do lote da vacina a ser cadastrado.', '', 'error');
       return false;
-    } else if (new Date(this.estoque.validade) < dataMais30Dias) {
-      Swal.fire('A data da validade precisa ser superior a data atual, em 30 dias corridos.', '', 'error');
+    } else if (new Date(this.estoque.dataLote) < dataMenos60Dias) {
+      Swal.fire('A data do lote não pode ser inferior à 60 dias em relação a data atual.', '', 'error');
+      return false;
+    } else if (new Date(this.estoque.validade) > dataMais365Dias) {
+      Swal.fire('A data da validade não pode ser superior à 1 ano em relação a data atual.', '', 'error');
+      return false;
+    } else if (new Date(this.estoque.dataLote) > dataAtual) {
+      Swal.fire('A data do lote não pode ser superior a data atual.', '', 'error');
       return false;
     }
     return true;
@@ -138,7 +146,10 @@ export class EstoqueDetalheComponent {
           Swal.fire('Estoque cadastrado com sucesso!', '', 'success');
           this.limparFormulario();
         } else {
-          Swal.fire('Erro ao tentar cadastrar o estoque: Entrada duplicada', 'error');
+          Swal.fire('Erro ao tentar cadastrar o estoque: "No estoque dessa unidade, '
+                  + 'atualmente, já existe um registro dessa vacina. Para inserir '
+                  + 'mais unidades, por gentileza, atualize o registro atual do '
+                  + 'estoque dessa vacina na unidade mencionada."', 'error');
         }
       },
       (erro) => {

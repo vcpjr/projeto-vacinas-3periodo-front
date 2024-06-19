@@ -1,12 +1,11 @@
 .linha-entradas{
-  //margin: 10px 0px 0px 20px;
   margin-left: 100px;
 }
 
 h5{
-  text-align: center;
-  font-size: 30px;
-  text-decoration: underline;
+  text-align: left;
+  font-size: 25px;
+  margin-left: 40px;
 }
 
 button, select, input {
@@ -46,3 +45,6 @@ input, select{
   color: black;
 }
 
+.card{
+  border: 1px solid black;
+}
