@@ -170,15 +170,13 @@ export class PessoaDetalheComponent implements OnInit{
           })
         )
         .subscribe((endereco: Endereco) => {
-          // Atualize os campos do endereço com os dados obtidos
           this.pessoa.enderecoDaPessoa.logradouro = endereco.logradouro;
           this.pessoa.enderecoDaPessoa.complemento = endereco.complemento;
           this.pessoa.enderecoDaPessoa.bairro = endereco.bairro;
           this.pessoa.enderecoDaPessoa.localidade = endereco.localidade;
           this.pessoa.enderecoDaPessoa.estado = endereco.uf;
-          this.pessoa.enderecoDaPessoa.pais = 'Brasil'; // Pode ser adicionado automaticamente, se desejar
+          this.pessoa.enderecoDaPessoa.pais = 'Brasil';
         });
     }
   }
-
 }
