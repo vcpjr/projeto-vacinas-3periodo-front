@@ -11,6 +11,7 @@ import { Fabricante } from '../../shared/model/fabricante';
 import { UnidadeService } from '../../shared/service/unidade.service';
 import { Unidade } from '../../shared/model/unidade';
 
+
 @Component({
   selector: 'app-vacina-listagem',
   templateUrl: './vacina-listagem.component.html',
@@ -26,6 +27,7 @@ export class VacinaListagemComponent implements OnInit{
     public listaDeUnidades : Array<Unidade> = new Array();
     public mostrarTabela: boolean = true;
     public temRegistro: boolean = true;
+
 
     constructor(
       private estoqueService : EstoqueService,
@@ -135,3 +137,4 @@ export class VacinaListagemComponent implements OnInit{
   }
 
 }
+

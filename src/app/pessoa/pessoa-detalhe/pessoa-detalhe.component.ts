@@ -4,6 +4,11 @@ import { PessoaService } from '../../shared/service/pessoa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
+import { NgxViacepService } from "@brunoc/ngx-viacep";
+import { Endereco, CEPError } from "@brunoc/ngx-viacep";
+import { EMPTY, catchError } from 'rxjs';
+
 @Component({
   selector: 'app-pessoa-detalhe',
   templateUrl: './pessoa-detalhe.component.html',
@@ -17,7 +22,8 @@ export class PessoaDetalheComponent implements OnInit{
   constructor(
     private pessoaService : PessoaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private viacep: NgxViacepService
   ){
 
   }
@@ -151,6 +157,28 @@ export class PessoaDetalheComponent implements OnInit{
 
   public limparFormulario(): void {
     this.pessoa = new Pessoa();
+  }
+
+  public buscarCEP(): void {
+    if (this.pessoa.enderecoDaPessoa.cep) {
+      this.viacep.buscarPorCep(this.pessoa.enderecoDaPessoa.cep)
+        .pipe(
+          catchError((error: CEPError) => {
+            console.log(error.message);
+            Swal.fire('Erro ao buscar CEP', error.message, 'error');
+            return EMPTY;
+          })
+        )
+        .subscribe((endereco: Endereco) => {
+          // Atualize os campos do endereço com os dados obtidos
+          this.pessoa.enderecoDaPessoa.logradouro = endereco.logradouro;
+          this.pessoa.enderecoDaPessoa.complemento = endereco.complemento;
+          this.pessoa.enderecoDaPessoa.bairro = endereco.bairro;
+          this.pessoa.enderecoDaPessoa.localidade = endereco.localidade;
+          this.pessoa.enderecoDaPessoa.estado = endereco.uf;
+          this.pessoa.enderecoDaPessoa.pais = 'Brasil'; // Pode ser adicionado automaticamente, se desejar
+        });
+    }
   }
 
 }

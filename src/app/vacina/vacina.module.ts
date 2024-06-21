@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { VacinaListagemComponent } from './vacina-listagem/vacina-listagem.component';
 
 
+
+
 @NgModule({
   declarations: [
     VacinaListagemComponent
