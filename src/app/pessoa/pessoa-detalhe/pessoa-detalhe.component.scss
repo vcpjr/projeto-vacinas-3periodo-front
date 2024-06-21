@@ -53,7 +53,6 @@ button, select, input {
   font-weight: 500;
   color: white;
   letter-spacing: 4px;
-
 }
 
 button{
@@ -62,7 +61,15 @@ button{
 
 input::placeholder {
   text-align: center;
-  padding-top: 10px; 
+  padding-top: 10px;
 }
+
+.botao-buscar-endereco{
+  font-size: 15px;
+  font-weight: 500;
+  background-color: cornflowerblue;
+  margin-top: 33px;
+}
+
 
 
