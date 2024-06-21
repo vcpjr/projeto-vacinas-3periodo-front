@@ -25,6 +25,7 @@ export class VacinaListagemComponent implements OnInit{
     public listaDeFabricantes : Array<Fabricante> = new Array();
     public listaDeUnidades : Array<Unidade> = new Array();
     public mostrarTabela: boolean = true;
+    public temRegistro: boolean = true;
 
     constructor(
       private estoqueService : EstoqueService,
@@ -44,7 +45,6 @@ export class VacinaListagemComponent implements OnInit{
     this.consultarTodasUnidades();
     this.pesquisarComFiltros();
   }
-
 
   private consultarTodasVacinas(): void{
     this.vacinaService.consultarTodas().subscribe(
@@ -83,30 +83,24 @@ export class VacinaListagemComponent implements OnInit{
     this.mostrarTabela = true;
   }
 
-  public pesquisarComFiltros(): void {
-    this.estoqueService.consultarComFiltros(this.vacinaSeletor).subscribe(
-      (resultado => this.listaVacinasDTO = resultado),
-      (erro => Swal.fire('Erro ao consultar a lista de vacinas com o(s) filtro(s) selecionado(s). ','','error'))
-    );
-    this.mostrarTabela = true;
-  }
-/*
   public pesquisarComFiltros(): void{
     this.estoqueService.consultarComFiltros(this.vacinaSeletor).subscribe(
       (resultado) => {
+        this.listaVacinasDTO = resultado;
         if(resultado.length > 0){
           this.listaVacinasDTO = resultado;
         } else{
           this.vacinaSeletor.pagina--;
-          Swal.fire('Não há mais registros de vacinas a serem exibidas com o seletor.');
+          Swal.fire('Não há mais registros de vacinas a serem exibidos de acordo com o critério da sua consulta.');
+          this.pesquisarComFiltros();
         }
+        this.mostrarTabela = true;
       },
       (erro) => {
-        Swal.fire('Erro ao consultar a lista de vacinas com o(s) filtro(s) selecionado(s). ','','error');
+        Swal.fire('Erro ao buscar todas as vacinas com o seletor.','','error');
       }
     );
   }
-*/
 
   public voltar(): void {
     this.router.navigate(['/vacina']);
@@ -123,22 +117,16 @@ export class VacinaListagemComponent implements OnInit{
     if(this.vacinaSeletor.pagina < 1){
       this.vacinaSeletor.pagina = 1;
       this.pesquisarComFiltros();
-      this.mostrarTabela = true;
+      Swal.fire('Você está na "Página 1".');
     } else{
       this.pesquisarComFiltros();
-      this.mostrarTabela = true;
     }
+    this.mostrarTabela = true;
   }
 
   public posterior(): void{
-
     this.vacinaSeletor.pagina++;
     this.pesquisarComFiltros();
-    if(this.pesquisarComFiltros()){
-      this.mostrarTabela = true;
-    } else{
-      this.voltar();
-    }
   }
 
   atualizarQtdeRegistrosPorPagina() {
