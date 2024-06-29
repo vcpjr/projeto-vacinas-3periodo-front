@@ -196,18 +196,12 @@ export class PessoaDetalheComponent implements OnInit{
 
     this.viacep.buscarPorEndereco(estado, cidade, logradouro).pipe(
       catchError((error: CEPError) => {
-        if(error){
-          // Não captura o erro aqui
-          Swal.fire('Erro ao buscar o CEP pelo endereço informado - catchError.',  error.message,'error');
-        }
         return EMPTY;
       })
     ).subscribe((enderecos: Endereco[]) => {
       if(this.listaDeEnderecos.length > 0){
         this.listaDeEnderecos = enderecos;
       } else{
-        // Captura aqui, mas não dá para usar o objeto error.message pois aqui já é outro método.
-        // Como capturar a mensa
         Swal.fire('Erro ao buscar o CEP pelo endereço informado. Tente novamente', 'error');
       }
 
