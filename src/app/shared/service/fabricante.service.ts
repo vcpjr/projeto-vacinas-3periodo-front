@@ -14,7 +14,7 @@ export class FabricanteService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/fabricante';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/fabricante';
 
   public consultarPorId(id: number): Observable<Fabricante>{
     return this.httpClient.get<Fabricante>(this.API + '/' + id);

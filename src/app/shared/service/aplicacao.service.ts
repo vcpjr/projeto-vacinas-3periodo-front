@@ -15,7 +15,7 @@ export class AplicacaoService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/aplicacao';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/aplicacao';
 
   public consultarPorId(id: number): Observable<Aplicacao>{
     return this.httpClient.get<Aplicacao>(this.API + '/' + id);

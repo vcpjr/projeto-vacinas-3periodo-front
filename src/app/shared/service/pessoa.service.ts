@@ -14,7 +14,7 @@ export class PessoaService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/pessoa';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/pessoa';
 
   public efetuarLogin(pessoa: Pessoa): Observable<Pessoa>{
     return this.httpClient.post<Pessoa>(this.API + '/login', pessoa);

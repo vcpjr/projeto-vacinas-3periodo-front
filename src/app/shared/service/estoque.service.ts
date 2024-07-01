@@ -16,7 +16,7 @@ export class EstoqueService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/estoque';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/estoque';
 
   public consultarTodos(): Observable<Array<Estoque>>{
     return this.httpClient.get<Array<Estoque>>(this.API + '/consultarTodos');

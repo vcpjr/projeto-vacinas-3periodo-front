@@ -14,7 +14,7 @@ export class UnidadeService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/unidade';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/unidade';
 
   public consultarPorId(id: number): Observable<Unidade>{
     return this.httpClient.get<Unidade>(this.API + '/' + id);

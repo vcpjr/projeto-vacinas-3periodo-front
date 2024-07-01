@@ -13,7 +13,7 @@ export class ContatoService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/contato';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/contato';
 
   public consultarPorId(id: number): Observable<Contato>{
     return this.httpClient.get<Contato>(this.API + '/' + id);

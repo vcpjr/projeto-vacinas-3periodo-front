@@ -13,7 +13,7 @@ export class EnderecoService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/endereco';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/endereco';
 
   public consultarTodos(): Observable<Array<Endereco>>{
     return this.httpClient.get<Array<Endereco>>(this.API + '/consultarTodosEnderecos');

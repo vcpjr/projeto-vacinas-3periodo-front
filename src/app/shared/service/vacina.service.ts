@@ -13,7 +13,7 @@ export class VacinaService {
 
   }
 
-  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/vacina';
+  private readonly API: string = 'http://localhost:8080/projeto-vacinas-3periodo/rest/restrito/vacina';
 
   public consultarTodas(): Observable<Array<Vacina>>{
     return this.httpClient.get<Array<Vacina>>(this.API + '/consultarTodasVacinas');
