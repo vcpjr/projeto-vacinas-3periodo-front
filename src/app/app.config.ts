@@ -7,7 +7,7 @@ import { requestAngular17Interceptor } from './auth/request-angular17.intercepto
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    // provideHttpClient(withFetch()), //  provideHttpClient(withFetch()) será ainda necessária?
+    provideHttpClient(withFetch()),
     provideHttpClient(withInterceptors([requestAngular17Interceptor]))
   ]
 };

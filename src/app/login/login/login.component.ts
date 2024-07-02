@@ -3,7 +3,9 @@ import { LoginService } from '../../shared/service/login.service';
 import { Router } from '@angular/router';
 import { Pessoa } from '../../shared/model/pessoa';
 import Swal from 'sweetalert2';
-import { UsuarioDTO } from '../../shared/model/dto/usuario.dto';
+import { UsuarioDTO } from '../../shared/model/dto/usuario.DTO';
+
+
 
 @Component({
   selector: 'app-login',
