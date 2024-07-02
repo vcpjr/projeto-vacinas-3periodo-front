@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
 import { EstoqueRoutingModule } from './estoque-routing.module';
 import { EstoqueDetalheComponent } from './estoque-detalhe/estoque-detalhe.component';
 import { FormsModule } from '@angular/forms';
@@ -15,7 +15,8 @@ import { EstoqueListagemComponent } from './estoque-listagem/estoque-listagem.co
   imports: [
     CommonModule,
     EstoqueRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class EstoqueModule { }

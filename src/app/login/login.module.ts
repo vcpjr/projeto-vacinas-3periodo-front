@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestInterceptor } from '../auth/request.interceptor';
 
+
 @NgModule({
   declarations: [
     LoginComponent
@@ -17,7 +18,6 @@ import { RequestInterceptor } from '../auth/request.interceptor';
     FormsModule,
     HttpClientModule
   ],
-
   providers: [ // Comentário 2 abaixo
     { provide: HTTP_INTERCEPTORS, useClass: RequestInterceptor, multi: true }
   ],
